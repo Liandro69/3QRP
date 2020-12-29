@@ -1,0 +1,746 @@
+<html style="overflow-y: hidden;">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@1,500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: none;
+        }
+        #content {
+            position: absolute;
+            border-radius: 5px;
+            background-color: #1C1C1C;
+            width: 75%;
+            height: 80%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #badge {
+            position: fixed;
+            display: inline-block;
+            left: 3%;
+            top: 2%;
+            max-width: 175px;
+            height: auto;
+            background-color: #1C1C1C;
+        }
+        #main {
+            position: relative;
+            text-align: center;
+            top: 10%;
+            width: 80%;
+            margin: auto;
+        }
+        #banner {
+            position: fixed;
+            display: inline-block;
+            bottom: 10%;
+            right: 1%;
+            max-width: 300px;
+            height: auto;
+            opacity: 0.6;
+        }
+        #mugshot {
+            display: inline-block;
+            max-width: 215px;
+            height: auto;
+            border: 2px solid #ffffff;
+            user-select: none;
+        }
+        .report-input {
+            font-family: "Courier New";
+            border-width:0px;
+            border:none;
+            color: #ffffff;
+            font-size: 12pt;
+            padding: 0px 0px 0px 0px;
+            width: 550px;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            text-align: left;
+            font-weight: bolder;
+        }
+        .page-title {
+            margin-bottom: 30px;
+        }
+        .line {
+            position: fixed;
+            width: 100%;
+            height: 1.5%;
+            background-color: #ffffff;
+        }
+        .nav-active {
+            text-decoration: underline;
+            text-decoration-color: #ffffff;
+        }
+        .noselect {
+            user-select: none;
+        }
+        .left-side {
+            float: left;
+            max-width: 50%;
+            max-height: 550px;
+            overflow-y: auto;
+            height: auto;
+            text-align: left;
+            user-select: none;
+        }
+        .right-side {
+            position: absolute;
+            left: 65%;
+            right: 10%;
+            width: 35%;
+            max-width: 300%;
+            max-height: 550px;
+            overflow-y: auto;
+            height: auto;
+            text-align: left;
+            user-select: none;
+        }
+        .modal {
+            z-index: 3;
+            display: none;
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.7)
+        }
+        .modal-content {
+            margin: auto;
+            background-color: #011b37;
+            position: relative;
+            padding: 20px 20px;
+            outline: 2px solid #ffffff;
+            top: 40%;
+            width: 30%;
+        }
+        br {
+            user-select: none;
+        }
+        h2, h3 {
+            font-family: 'Kanit', sans-serif;
+            user-select: none;
+            color: #CBAD3C;
+;
+            margin: 1px 1px 1px 1px;
+        }
+        h4 {
+            font-family: "Arial";
+            font-weight: bolder;
+            font-size: 14px;
+            user-select: none;
+            color: #ffffff;
+            margin: 1px 1px 1px 1px;
+        }
+        p {
+            font-family: "Arial";
+            color: #CBAD3C;
+;
+        }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li {
+            font-family: "Arial";
+            font-weight: bolder;
+            color: #CBAD3C;
+            float: left;
+            padding-left: 16px;
+            padding-right: 16px;
+            border-right: 2px solid #ffffff;
+        }
+        li:last-child {
+            border-right: none;
+        }
+        button {
+            color: rgba(255, 255, 255 , 0.7);
+            font-family: "Arial";
+            background-color: rgba(149, 149, 149 , 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.01);
+            transition: 0.2s;
+            font-size: 12pt;
+            text-align: center;
+            padding: 4px 3px;
+        }
+        input {
+            background-color: #000000;
+            font-family: "Tahoma";
+            border: 2px solid #ffffff;
+
+            color: #ffffff;
+            font-size: 12pt;
+            padding: 7px 15px 5px 15px;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            text-align: left;
+        }
+        textarea {
+            background-color: #000000;
+            white-space: pre-line;
+            white-space: pre-wrap;
+            font-family: "Verdana";
+            font-weight: bolder;
+            font-size: 14px;
+            border-width:0px;
+            border:none;
+            color:  #CBAD3C;
+            font-size: 12pt;
+            padding: 0px 0px 0px 0px;
+            width: 550px;
+            margin-right: 10px;
+            text-overflow: ellipsis;
+            text-align: left;
+            outline: none;
+        }
+        th {
+            font-family: "Arial";
+            font-weight: bolder;
+            font-size: 14px;
+            color: white;
+            padding: 5px 10px;
+            text-align: center;
+            border-bottom: 3px solid #ffffff;
+        }
+        td {
+            font-family: "Arial";
+            font-size: 14px;
+            color: #ffffff;
+            padding: 10px;
+            text-align: center;
+            border-top: 1px solid #ffffff;
+        }
+        table {
+            border-collapse: collapse;
+            column-gap: 3px solid #ffffff;
+        }
+        table td + td { 
+            border-left: 2px solid #ffffff; 
+        }
+        table th + th { 
+            border-left: 2px solid #ffffff; 
+        }
+        input:focus {
+            outline: none;
+        }
+        button:focus {
+            outline: none;
+        }
+        button:hover {
+            background-color: rgba(208, 188, 88, 0.5 );
+            border-color: #CBAD3C;
+        }
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey; 
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #ffffff; 
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="content">
+        <div class="line" style="top: 10%;"></div>
+        <img src="badge.png" id="badge" class="noselect">
+        <img src="footer.png" id="banner" class="noselect">
+        
+        <p class="noselect" style= "font-family: 'Kanit', sans-serif;  font-size: 20pt;color:#ffff; text-align: center;">Sistema Nacional de Criminologia</p>
+        <p class="noselect" style="position: fixed; left: 17%; font-family:'Arial'; font-weight: bolder; top: 5.5%">Bem-Vindo, {{ officer.name }}.</p>
+        <button type="button" class="noselect" v-on:click="closeMDT()" style="position: fixed; right: 10%; top: 5.5%">LOGOUT</button>
+
+        <div style="position: fixed; left: 16%; top: 12.5%;">
+            <ul>
+                <li v-on:click="changePage('Home')" id="home" class="noselect">Inicio</li>
+                <li v-on:click="changePage('Search Offenders')" id="search-offenders" class="noselect">Procurar Pessoas</li>
+                <li v-on:click="changePage('Search Vehicles')" id="search-vehicles" class="noselect">Procurar Veiculos</li>
+                <li v-on:click="changePage('Submit Report')" id="submit-report" class="noselect">Criar Relatorio</li>
+                <li v-on:click="changePage('Warrants')" id="warrants" class="noselect">Mandatos</li>
+                <li v-on:click="changePage('Search Reports')" id="search-reports" class="noselect">Procurar Relatórios</li>
+            </ul>
+        </div>
+
+        <main id="main" style="height: 550px;">
+            <div v-if="page == 'Home'">
+    
+                <div class="left-side" style="width: 400px; position: absolute; float: unset;">
+                    <h3>RELATORIOS RECENTES</h3>
+                    <br />
+                    <span v-if="homepage.reports" v-for="result in homepage.reports">
+                        <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                        <button type="button" class="noselect" v-on:click="report_selected = result; changePage('Search Reports');" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                        <br />
+                    </span>
+                </div>
+
+                <div class="left-side" style="width: 400px; position: absolute; top: 55%;">
+                    <h3>PESQUISA DE PESSOAS</h3>
+                    <br />
+                    <h4 v-if="recent_searches.person.length == 0"> ... </h4>
+                    <span v-else-if="recent_searches.person.length > 0" v-for="person in recent_searches.person">
+                        <button type="button" class="noselect" v-on:click="OpenOffenderDetailsById(person.id);" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ person.firstname }}  {{person.lastname}} </button>
+                        <br />
+                    </span>
+                </div>
+
+                <div class="right-side" style="width: 400px; position: absolute; float: unset;">
+                    <h3>MANDATOS RECENTES</h3>
+                    <br />
+                    <h4 v-if="homepage.warrants == false"> ... </h4>
+                    <span v-else-if="homepage.warrants != false" v-for="warrant in homepage.warrants">
+                        <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ warrant.date }} - ID: {{ warrant.id }} </h4>
+                        <button type="button" class="noselect" v-on:click="warrant_selected = warrant; changePage('Warrant Details');" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ warrant.name }} </button>
+                        <br />
+                    </span>
+                </div>
+
+                <div class="right-side" style="width: 400px; position: absolute; top: 55%;">
+                    <h3>PESQUISA DE VEICULOS</h3>
+                    <br />
+                    <h4 v-if="recent_searches.vehicle.length == 0"> ... </h4>
+                    <span v-else-if="recent_searches.vehicle.length > 0" v-for="vehicle in recent_searches.vehicle">
+                        <button type="button" class="noselect" v-on:click="OpenVehicleDetails(vehicle);" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ vehicle.plate }} </button>
+                        <br />
+                    </span>
+                </div>
+
+                <div style="bottom: 0%; position: absolute; margin: 0 auto; width: 100%;">
+                    <br />
+                    <button type="button" class="noselect" v-on:click="homepage.button_press = homepage.button_press + 1;">CLICK ME: {{homepage.button_press}}</button>
+                </div>
+            </div>
+
+            <div v-if="page == 'Search Reports'">
+
+                <h2 class="page-title">PROCURAR NA BD</h2>
+
+                <form class="noselect">
+                    <input v-model="report_search" type="text" class="noselect" placeholder="Nome ou ID do Relatório" required>
+                    <button v-on:click="ReportSearch()" type="button" class="noselect" >PROCURAR</button>
+                </form>
+                
+                <br />
+
+                <div class="left-side" style="max-height: 450px; width: 500px;">
+                    <h3>DATA</h3>
+                    <h4 v-if="report_selected.date"> {{ report_selected.date }} </h4>
+                    <h4 v-else-if="report_selected.date == null"> ... </h4>
+                    <h3>NOME</h3>
+                    <h4 v-if="report_selected.name" v-on:click="OpenOffenderDetailsById(report_selected.char_id);"> {{ report_selected.name }} </h4>
+                    <h4 v-else-if="report_selected.name == null"> ... </h4>
+                    <h3>INCIDENTE #{{ report_selected.id}}</h3>
+                    <h4 v-if="report_selected.title"> {{ report_selected.title }} </h4>
+                    <h4 v-else-if="report_selected.title == null"> ... </h4>
+                    <h3>AUTOS</h3>
+                    <h4 v-if="report_selected.charges == null"> ... </h4>
+                    <span v-for="(amount, offense in report_selected.charges" :key="offense">
+                        <h4>
+                            {{ offense }} (x{{ amount }})
+                        </h4>
+                    </span>
+                    <h4 v-if="report_selected.jailtime">Sentença: {{ report_selected.jailtime }} meses</h4>
+                    <h3>AGENTE DO INCIDENTE</h3>
+                    <h4 v-if="report_selected.author"> {{ report_selected.author }} </h4>
+                    <h4 v-else-if="report_selected.author == null"> ... </h4>
+                    <br />
+                    <button v-if="report_selected.date" type="button" v-on:click="changePage('Report Details')" id="report-details" class="noselect">VER RELATORIO</button>
+                    <button v-if="report_selected.date" type="button" v-on:click="changePage('Submit Report'); report_new.charges = report_selected.charges; report_new.title = report_selected.title; report_new.incident = report_selected.incident;" id="report-details" class="noselect">COPIAR RELATORIO</button>
+                    <button v-if="report_selected.date" type="button" v-on:click="changePage('Submit Warrant'); warrant_new.report_id = report_selected.id; warrant_new.char_id = report_selected.char_id; warrant_new.report_title = report_selected.title; warrant_new.name = report_selected.name; warrant_new.charges = report_selected.charges;" class="noselect">NOVO MANDATO</button>
+                    <button type="button" style="margin-top: 5px;" v-on:click="changePage('Submit Report')" class="noselect">NOVO RELATORIO</button>
+                </div>
+
+                <div class="right-side" style="max-height: 435px;">
+                    <div v-if="report_results.results">
+                        <h3>PROCURAR RESULTADOS</h3>
+                        <h4 style="margin: 10px 1px 30px 1px;">A encontrar resultados para '{{ report_results.query }}'...</h4>
+                        <span v-if="report_results.results" v-for="result in report_results.results">
+                            <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                            <button type="button" class="noselect" v-on:click="report_selected = result;" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                            <br />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Submit Report'">
+                
+                <h2 class="page-title">NOVO RELATORIO</h2>
+                
+                <div class="left-side" style="position:absolute; top: 20%; max-height: 450px;">
+                    <form class="noselect">
+                        <h3>NOME</h3>
+                        <h4 v-if="report_new.name" style="font-size: 14px;"> {{ report_new.name }} </h4>
+                        <h4 v-else-if="report_new.name == null"> ... </h4>
+                        <h3>INCIDENTE</h3>
+                        <input v-model="report_new.title" style="font-size: 14px;" type="text" class="noselect" placeholder="Escreve o título do relatório" class="report-input" required>
+                        <h3>DETALHES</h3>
+                        <textarea v-model="report_new.incident" id="textarea2" style="font-size: 14px; border: 2px solid #ffffff; padding: 7px 15px 5px 15px;" class="noselect" rows="6" cols="55" placeholder="Escreve a descrição do relatório" onkeypress='this.style.height = "";this.style.height = this.scrollHeight + "px"' required>
+                        </textarea>
+                        <h3>AUTOS</h3>
+                        <h4 v-if="Object.keys(report_new.charges).length == 0"> ... </h4>
+                        <span v-for="(amount, offense in report_new.charges" :key="offense">
+                            <h4 style="font-size: 14px;">
+                                <span v-on:click="RemoveCharge(offense)" style="color: red; font-weight: all;">(-)</span> 
+                                {{ offense }} (x{{ amount }})
+                            </h4>
+                        </span>
+                        <h4 v-if="report_new.recommended_fine > 0">Multa: ${{report_new.recommended_fine}}</h4>
+                        <h4 v-if="report_new.recommended_sentence > 0">Sentença recomendada: {{report_new.recommended_sentence}} meses</h4>
+                        <h3 v-if="report_new.recommended_sentence > 0">SENTENÇA</h3>
+                        <input v-if="report_new.recommended_sentence > 0" v-model="report_new.sentence" style="font-size: 14px; margin-bottom: 5px;" type="text" class="noselect" placeholder="Enter months" class="report-input" required>
+                        <br />
+                        <button v-if="report_new.char_id && Object.keys(report_new.charges).length > 0 && report_new.incident && report_new.title && ((report_new.recommended_sentence > 0 && report_new.sentence) || report_new.recommended_sentence == 0)" v-on:click="SubmitNewReport()" type="button" class="noselect" style="margin-top: 20px">SUBMETER RELATORIO</button>
+                        <button v-if="report_new.focus == 'charges'" v-on:click="report_new.focus = 'name'" type="button" class="noselect" style="margin-top: 20px">PROCURAR ACUSADO</button>
+                        <button v-if="report_new.focus == 'name'" v-on:click="report_new.focus = 'charges'" type="button" class="noselect" style="margin-top: 20px">PROCURAR AUTOS</button>
+                    </form>
+                </div>
+
+                <div class="right-side" style="position: absolute; top: 15%;">
+                    <div v-if="report_new.focus == 'name'">
+                        <h3 style="margin: 10px 0px">PROCURAR ACUSADO</h3>
+                        <form class="noselect">
+                            <input v-model="offender_search" type="text" class="noselect" placeholder="Nome para pesquisa" required>
+                            <button v-on:click="OffenderSearch()" type="button" class="noselect">PROCURAR</button>
+                        </form>
+
+                        <div v-if="offender_results.query" style="max-height: 400px;">
+                            <h3>PROCURAR RESULTADOS</h3>
+                            <h4 style="margin: 10px 1px 30px 1px;">Encontrar resultados para '{{ offender_results.query }}'...</h4>
+                            <span v-if="offender_results.results" v-for="offender in offender_results.results">
+                                <button type="button" class="noselect" v-on:click="report_new.char_id = offender.id; report_new.name = offender.firstname + ' ' + offender.lastname; report_new.focus='charges'" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offender.firstname }} {{ offender.lastname }}</button>
+                                <br />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div v-else-if="report_new.focus == 'charges'">
+                        <h3 style="margin: 10px 0px">PROCURAR AUTOS</h3>
+                        <div v-if="offenses" style="max-height: 460px;">
+                            <form class="noselect">
+                                <input v-model="report_new.charges_search" type="text" class="noselect" placeholder="Filtrar acusações" style="width: 80%;" required>  
+                            </form>
+                            <span v-for="offense in filtered_offenses">
+                                <button type="button" class="noselect" v-on:click="AddCharge(offense.id)" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offense.label }}</button>
+                                <br />
+                            </span>
+                        </div>
+                        <h4 v-else-if="offenses == false">A carregar...</h4>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Search Offenders'">
+
+                <h2 class="page-title">PROCURAR BD</h2>
+
+                <form class="noselect">
+                    <input v-model="offender_search" type="text" class="noselect" placeholder="Nome para pesquisa" required>
+                    <button v-on:click="OffenderSearch()" type="button" class="noselect">PROCURAR</button>
+                </form>
+                
+                <br />
+
+                <div class="left-side" style="max-height: 450px;">
+                    <h3>NOME</h3>
+                    <h4 v-if="offender_selected.firstname"> {{ offender_selected.firstname }} {{ offender_selected.lastname }} </h4>
+                    <h4 v-else-if="offender_selected.name == null"> ... </h4>
+                    <h3>NOTAS</h3>
+                    <h4 v-if="offender_selected.notes"> {{ offender_selected.notes }} </h4>
+                    <h4 v-if="offender_selected.haswarrant"> {{ offender_selected.firstname}} {{offender_selected.lastname}} tem um mandato ativo... </h4>
+                    <h4 v-else-if="offender_selected.notes == '' && !offender_selected.haswarrant"> ... </h4>
+                    <h3>LICENÇAS</h3>
+                    <h4 v-if="offender_selected.licenses == false"> ... </h4>
+                    <span v-else-if="offender_selected.licenses" v-for="license in offender_selected.licenses">
+                        <h4>{{ license.label }}</h4>
+                    </span>
+                    <h3>CONDENAÇOES</h3>
+                    <h4 v-if="offender_selected.convictions == null"> ... </h4>
+                    <span v-else-if="offender_selected.convictions" v-for="(value, name) in offender_selected.convictions">
+                        <h4>{{ name }} x{{ value }}</h4>
+                    </span>
+                    <h3>DATA NASCIMENTO</h3>
+                    <h4 v-if="offender_selected.dateofbirth"> {{ offender_selected.dateofbirth }} </h4>
+                    <h4 v-else-if="offender_selected.dateofbirth == null"> ... </h4>
+                    <br />
+                    <button v-if="offender_selected.firstname" type="button" v-on:click="changePage('Edit Offender')" id="edit-offender" class="noselect">EDITAR PERFIL</button>
+                    <button v-if="offender_selected.firstname" type="button" v-on:click="changePage('Submit Report'); report_new.char_id = offender_selected.id; report_new.name = offender_selected.firstname + ' ' + offender_selected.lastname; report_new.focus = 'charges'" id="edit-offender" class="noselect">NOVO RELATÓRIO</button>
+                </div>
+
+                <div class="right-side" style="max-height: 435px">
+                    <div v-if="offender_results.query">
+                        <h3>PROCURAR RESULTADOS</h3>
+                        <h4 style="margin: 10px 1px 30px 1px;">A procurar resultados '{{ offender_results.query }}'...</h4>
+                        <span v-if="offender_results.results" v-for="offender in offender_results.results">
+                            <button type="button" class="noselect" v-on:click="OpenOffenderDetails(offender.id)" style="margin-bottom: 10px; width: 100%; padding: unset;">{{ offender.firstname }} {{ offender.lastname }}</button>
+                            <br />
+                        </span>
+                    </div>
+
+                    <div v-else-if="offender_results.results == false">
+                        <img v-if="offender_selected.mugshot_url" v-bind:src="offender_selected.mugshot_url" alt="mugshot" id="mugshot">
+                        <img v-else-if="offender_selected.mugshot_url == ''" src="mugshot.png" alt="mugshot" id="mugshot">
+                    </div>
+                </div>
+
+            </div>
+
+            <div v-if="page == 'Report Details'">
+                <h2 class="page-title">DETALHES DO RELATORIO</h2>
+                <br />
+                <div class="left-side" style="max-width: 1000px; float: unset; margin: 0 auto; max-height: 475px;">
+                    <h3>DATA</h3>
+                    <h4 v-if="report_selected.date"> {{ report_selected.date }} </h4>
+                    <h4 v-else-if="report_selected.date == null"> ... </h4>
+                    <h3>NOME</h3>
+                    <h4 v-if="report_selected.name" v-on:click="OpenOffenderDetailsById(report_selected.char_id)"> {{ report_selected.name }} </h4>
+                    <h4 v-else-if="report_selected.name == null"> ... </h4>
+                    <template v-if="report_edit.enable == false">
+                        <h3>INCIDENTE #{{report_selected.id}}</h3>
+                        <h4 v-if="report_selected.title"> {{ report_selected.title }} </h4>
+                        <h4 v-else-if="report_selected.title == null"> ... </h4>
+                    </template>
+                    <template v-else-if="report_edit.enable == true">
+                        <h3>INCIDENTE #{{report_selected.id}} (EDITAR)</h3>
+                        <input v-model="report_edit.data.title" type="text" class="noselect" placeholder="Escreve título do relatório" class="report-input" style="font-size: 14px;" required>
+                    </template>
+                    <template v-if="report_edit.enable == false">
+                        <h3>DETALHES</h3>
+                        <h4 v-if="report_selected.incident" style="white-space: pre-line; white-space: pre-wrap;">{{ report_selected.incident }}</h4>
+                        <h4 v-else-if="report_selected.incident == null"> ... </h4>
+                        <h4 v-if="report_selected.jailtime">Sentença: {{ report_selected.jailtime }} meses</h4>
+                    </template>
+                    <template v-else-if="report_edit.enable == true">
+                        <h3>DETALHES (EDITA)</h3>
+                        <form>
+                            <textarea v-model="report_edit.data.incident" id="textarea" class="noselect" style="width: 95%; height: 80px; border: 2px solid #ffffff; padding: 7px 15px 5px 15px; margin: unset; font-size: 14px;" onfocus='this.style.height = "";this.style.height = this.scrollHeight + "px"' onkeypress='this.style.height = "";this.style.height = this.scrollHeight + "px"' placeholder="Escreve descrição do relatório" required>
+                            </textarea>
+                        </form>
+                    </template>
+                    <h3>ACUSAÇOES</h3>
+                    <span v-for="(amount, offense) in report_selected.charges" :key="offense">
+                        <h4>
+                            {{ offense }} (x{{ amount }})
+                        </h4>
+                    </span>
+                    <h3>AGENTE DA OFENSA</h3>
+                    <h4 v-if="report_selected.author"> {{ report_selected.author }} </h4>
+                    <h4 v-else-if="report_selected.author == null"> ... </h4>
+                    <br />
+                    <button type="button" v-on:click="changePage('Search Reports')" id="search-reports" class="noselect">RECUA PARA RELATORIOS</button>
+                    <button v-if="report_edit.enable == false" type="button" v-on:click="SentencePlayer()" class="noselect">SENTENÇA</button>
+                    <button v-if="report_edit.enable == false" type="button" v-on:click="ToggleReportEdit()" class="noselect">EDITAR</button>
+                    <button v-if="report_edit.enable == false" type="button" v-on:click="DeleteSelectedReport()" class="noselect">APAGAR</button>
+                    <template v-else-if="report_edit.enable">
+                        <button type="button" v-if="report_edit.data.incident && report_edit.data.title" v-on:click="SaveReportEditChanges();" class="noselect">GUARDAR</button>
+                        <button type="button" v-on:click="ToggleReportEdit();" class="noselect">CANCELAR</button>
+                    </template>
+                </div>
+            </div>
+
+            <div v-if="page == 'Edit Offender'">
+                <h2 class="page-title">EDITAR PERFIL</h2>
+    
+                <br />
+                <div class="left-side">
+                    <form class="noselect">
+                        <h3>NOTAS</h3>
+                        <input v-model="offender_changes.notes" class="no-select" type="text" v-bind:placeholder="offender_selected.notes">
+                        <h3 style="margin-top: 20px">RETRATO URL</h3>
+                        <input v-model="offender_changes.mugshot_url" class="noselect" type="text" v-bind:placeholder="offender_selected.mugshot_url">
+                        <h3 style="margin-top: 20px">LICENÇAS</h3>
+                        <h4 v-if="offender_changes.licenses == false"> ... </h4>
+                        <span v-else-if="offender_changes.licenses" v-for="license in offender_changes.licenses">
+                            <h4>
+                                <span v-on:click="RemoveLicense(license)" style="color: red; font-weight: all;">(-)</span> 
+                                {{ license.label }}
+                            </h4>
+                        </span>
+                        <br />
+                        <button type="button" class="noselect" v-on:click="SaveOffenderChanges()" style="margin-top: 20px">GUARDAR MUDANÇAS</button>
+                    </form>
+                </div>
+                <div class="right-side">
+                    <h3>ACUSAÇÕES</h3>
+                    <h4 v-if="offender_changes.convictions == null || (offender_changes.convictions && Object.keys(offender_changes.convictions).length == 0)"> ... </h4>
+                    <span v-else-if="offender_changes.convictions" v-for="(value, name) in offender_changes.convictions">
+                        <h4>
+                            <span v-on:click="RemoveConviction(name)" style="color: red; font-weight: all;">(-)</span> 
+                            {{ name }} x{{ value }}
+                        </h4>
+                    </span>
+                    <br />
+                    <button type="button" class="noselect" v-on:click="changePage('Search Offenders')">RECUAR PARA PERFIL</button>
+                </div>
+            </div>
+
+            <div v-if="page == 'Warrants'">
+                <h2 class="page-title">MANDATOS ATIVOS</h2>
+                <form class="noselect">
+                    <input v-model="warrant_search" type="text" class="noselect" placeholder="Filtrar mandatos" required>
+                </form>
+                <br />
+
+                <div style="max-width: 1000px; width: 1000px; float: unset; margin: 0 auto;">
+                    <table v-if="filtered_warrants.length > 0" style="margin: 0 auto;">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Relatório</th>
+                            <th>Data efetuado</th>
+                            <th style="column-width: 140px;">Expira</th>
+                        </tr>
+                        <tr v-for="warrant in filtered_warrants" v-on:click="changePage('Warrant Details'); warrant_selected = warrant;">
+                            <td>{{warrant.name}}</td>
+                            <td style="overflow: hidden; text-overflow: ellipsis; max-width: 500px; max-height: 10px;">{{warrant.report_title}}</td>
+                            <td>{{warrant.date}}</td>
+                            <td style="padding: 5px;">{{warrant.expire_time}}</td>
+                        </tr>
+                    </table>
+                    <h4 v-else-if="filtered_warrants.length == 0" style="text-align: center; font-size: 20px; font-weight: bold;"><br />Não foram encontrados mandatos!</h4>
+                    <div style="bottom: 0%">
+                        <button v-on:click="changePage('Submit Warrant')" type="button" class="noselect" style="margin-top: 30px;">NOVO MANDATO</button>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Search Vehicles'">
+                <h2 class="page-title">PROCURAR BD</h2>
+
+                <form class="noselect">
+                    <input v-model="vehicle_search" type="text" class="noselect" placeholder="Matrícula para pesquisa" required>
+                    <button v-on:click="VehicleSearch()" type="button" class="noselect">PROCURAR</button>
+                </form>
+                
+                <br />
+
+                <div class="left-side">
+                    <h3>MATRÍCULA</h3>
+                    <h4 v-if="vehicle_selected.plate"> {{vehicle_selected.plate}} </h4>
+                    <h4 v-else-if="vehicle_selected.plate == null"> ... </h4>
+                    <h3>TIPO</h3>
+                    <h4 v-if="vehicle_selected.type"> {{vehicle_selected.type}} </h4>
+                    <h4 v-else-if="vehicle_selected.type == null"> ... </h4>
+                    <h3>DONO</h3>
+                    <h4 v-if="vehicle_selected.owner" v-on:click="OpenOffenderDetailsById(vehicle_selected.owner_id)"> {{vehicle_selected.owner}} </h4>
+                    <h4 v-else-if="vehicle_selected.owner == null"> ... </h4>
+                    <h3>MODELO</h3>
+                    <h4 v-if="vehicle_selected.model"> {{vehicle_selected.model}} </h4>
+                    <h4 v-else-if="vehicle_selected.model == null"> ... </h4>
+                    <h3>COR</h3>
+                    <h4 v-if="vehicle_selected.color"> {{vehicle_selected.color}} </h4>
+                    <h4 v-else-if="vehicle_selected.color == null"> ... </h4>
+                </div>
+
+                <div class="right-side" style="max-height: 435px">
+                    <div v-if="vehicle_results.results">
+                        <h3>PROCURAR REULTADOS</h3>
+                        <h4 style="margin: 10px 1px 30px 1px;">Encontrar resultados para '{{ vehicle_results.query }}'...</h4>
+                        <span v-if="vehicle_results.results" v-for="result in vehicle_results.results">
+                            <button type="button" class="noselect" v-on:click="OpenVehicleDetails(result)" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.plate }} </button>
+                            <br />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Submit Warrant'">
+                <h2 class="page-title">NOVO MANDATO</h2>
+
+                <div class="left-side" style="position: absolute; float: none; top: 15%; max-height: 450px;">
+                    <form class="noselect">
+                        <h3>RELATORIO</h3>
+                        <h4 v-if="warrant_new.report_title" style="font-size: 14px;"> {{ warrant_new.report_title }} </h4>
+                        <h4 v-else-if="warrant_new.report_title == null"> ... </h4>
+                        <h3>NOME</h3>
+                        <h4 v-if="warrant_new.name" style="font-size: 14px;"> {{ warrant_new.name }} </h4>
+                        <h4 v-else-if="warrant_new.name == null"> ... </h4>
+                        <h3>NOTAS</h3>
+                        <input v-model="warrant_new.notes" style="font-size: 14px; width: 400px;" type="text" class="noselect" placeholder="Enter warrant notes (optional)" class="report-input" required>
+                        <h3>ACUSAÇOES</h3>
+                        <h4 v-if="Object.keys(warrant_new.charges).length == 0"> ... </h4>
+                        <span v-else-if="Object.keys(warrant_new.charges).length > 0" v-for="(amount, offense in warrant_new.charges" :key="offense">
+                            <h4 style="font-size: 14px;">
+                                {{ offense }} (x{{ amount }})
+                            </h4>
+                        </span>
+                        <button v-if="warrant_new.report_id && warrant_new.char_id" v-on:click="SubmitNewWarrant()" type="button" class="noselect" style="margin-top: 20px">SUBMIT WARRANT</button>
+                    </form>
+                </div>
+
+                <div class="right-side" style="max-height: 450px;">
+                    <h3 v-if="report_results.results">PROCURAR RESULTADOS</h3>
+                    <h3 v-else-if="report_results.query == ''">PROCURAR RELATORIOS</h3>
+                    <br />
+                    <form class="noselect">
+                        <input v-model="warrant_new.report_search" type="text" class="noselect" placeholder="Name or Incident ID" required>
+                        <button v-on:click="WarrantReportSearch()" type="button" class="noselect" >PROCURAR</button>
+                    </form>
+                    <div v-if="report_results.results">
+                        <h4 style="margin: 10px 1px 30px 1px;">A encontrar resultados '{{ warrant_new.report_search }}'...</h4>
+                        <span v-if="report_results.results" v-for="result in report_results.results">
+                            <h4 style="font-size: 12px; margin-bottom: 3px;"> {{ result.date }} - ID: {{ result.id }} </h4>
+                            <button type="button" class="noselect" v-on:click="warrant_new.report_title = result.title; warrant_new.name = result.name; warrant_new.charges = result.charges; warrant_new.report_id = result.id; warrant_new.char_id = result.char_id;" style="margin-bottom: 10px; width: 100%; padding: unset;"> {{ result.title }} </button>
+                            <br />
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div v-if="page == 'Warrant Details'">
+                <h2 class="page-title">DETALHES DO MANDATO</h2>
+                <br />
+                <div class="left-side" style="max-width: 1000px; float: unset; margin: 0 auto;">
+                    <h3>DATA</h3>
+                    <h4 v-if="warrant_selected.date"> {{ warrant_selected.date }} </h4>
+                    <h4 v-else-if="warrant_selected.date == null"> ... </h4>
+                    <h3>NOME</h3>
+                    <h4 v-if="warrant_selected.name" v-on:click="OpenOffenderDetailsById(warrant_selected.char_id)"> {{ warrant_selected.name }} </h4>
+                    <h4 v-else-if="warrant_selected.name == null"> ... </h4>
+                    <h3>RELATORIO</h3>
+                    <h4 v-if="warrant_selected.report_title" v-on:click="OpenReportById(warrant_selected.report_id)"> {{ warrant_selected.report_title }} </h4>
+                    <h4 v-else-if="warrant_selected.report_title == null"> ... </h4>
+                    <h3>NOTAS</h3>
+                    <h4 v-if="warrant_selected.notes"> {{ warrant_selected.notes }} </h4>
+                    <h4 v-else-if="warrant_selected.notes == null"> ... </h4>
+                    <h3>ACUSAÇOES</h3>
+                    <span v-for="(amount, offense) in warrant_selected.charges" :key="offense">
+                        <h4>
+                            {{ offense }} (x{{ amount }})
+                        </h4>
+                    </span>
+                    <h3>AUTOR</h3>
+                    <h4 v-if="warrant_selected.author"> {{ warrant_selected.author }} </h4>
+                    <h4 v-else-if="warrant_selected.author == null"> ... </h4>
+                    <h3>EXPIRA</h3>
+                    <h4 v-if="warrant_selected.expire_time"> {{ warrant_selected.expire_time }} </h4>
+                    <h4 v-else-if="warrant_selected.expire_time == null"> ... </h4>
+                    <br />
+                    <button type="button" v-on:click="changePage('Warrants')" id="warrants" class="noselect">VOLTA AOS MANDATOS</button>
+                    <button type="button" v-on:click="DeleteSelectedWarrant()" class="noselect">APAGAR</button>
+                </div>
+            </div>
+        </main>
+        
+        <p class="noselect" style="font-family: 'Georgia'; font-style: italic; font-size: 20pt; position: fixed; bottom: 1%; right: 5.5%; direction: rtl;">Proteger & Servir</p>
+        <div class="line" style="bottom: 10%"></div>
+    </div> 
+
+
+    <script src="vue.min.js"></script>
+    <script
+        src = "https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity = "sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin = "anonymous">
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
