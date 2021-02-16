@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<CDataFileMgr__ContentsOfDataFileXml>
+	<disabledFiles />
+	<includedXmlFiles />
+	<dataFiles>
+	<Item>
+      <filename>dlc_int_mara:/models.rpf</filename>
+      <fileType>RPF_FILE</fileType>
+      <overlay value="false" />
+			<disabled value="true" />
+			<persistent value="false" />
+	</Item>
+	<Item>
+      <filename>dlc_int_mara:/collisions.rpf</filename>
+      <fileType>RPF_FILE</fileType>
+      <overlay value="false" />
+			<disabled value="true" />
+			<persistent value="false" />
+	</Item>
+	<Item>
+      <filename>dlc_int_mara:/basev.rpf</filename>
+      <fileType>RPF_FILE</fileType>
+			<overlay value="true"/>
+			<disabled value="true" />
+			<persistent value="false" />
+	</Item>
+	<Item>
+      <filename>dlc_int_mara:/meta.rpf</filename>
+      <fileType>RPF_FILE</fileType>
+		  <overlay value="true" />
+		  <disabled value="true" />
+		  <persistent value="true" />
+	</Item>
+	</dataFiles>
+	<contentChangeSets>
+		<Item>
+			<changeSetName>int_mara_AUTOGEN</changeSetName>
+			<mapChangeSetData />
+			<filesToInvalidate />
+			<filesToDisable />
+			<filesToEnable>
+				<Item>dlc_int_mara:/models.rpf</Item>
+				<Item>dlc_int_mara:/collisions.rpf</Item>
+				<Item>dlc_int_mara:/basev.rpf</Item>
+			</filesToEnable>
+			<txdToLoad />
+			<txdToUnload />
+			<residentResources />
+			<unregisterResources />
+			<requiresLoadingScreen value="false" />
+		</Item>
+		<Item>
+			<changeSetName>int_mara_STREAMING_MAP</changeSetName>
+			<mapChangeSetData>
+				<Item>
+					<associatedMap>MO_JIM_L11</associatedMap>
+					<filesToInvalidate />
+					<filesToDisable />
+					<filesToEnable>
+					<Item>dlc_int_mara:/meta.rpf</Item>
+					</filesToEnable>
+					<txdToLoad />
+					<txdToUnload />
+					<residentResources />
+					<unregisterResources />
+				</Item>
+			</mapChangeSetData>
+			<requiresLoadingScreen value="true" />
+			<loadingScreenContext>LOADINGSCREEN_CONTEXT_LAST_FRAME</loadingScreenContext>
+			<useCacheLoader value="true" />
+		</Item>
+	</contentChangeSets>
+	<patchFiles />
+</CDataFileMgr__ContentsOfDataFileXml>

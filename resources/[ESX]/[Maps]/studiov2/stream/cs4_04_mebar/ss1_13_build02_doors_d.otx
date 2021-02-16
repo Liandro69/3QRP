@@ -1,0 +1,10 @@
+Version 13 30
+{
+	Image ss1_13_build02_doors_d.dds
+	Type Regular
+	PixelFormat DXT1
+	Levels 9
+	Usage DIFFUSE
+	UsageFlags  NOT_HALF
+	ExtraFlags 0
+}

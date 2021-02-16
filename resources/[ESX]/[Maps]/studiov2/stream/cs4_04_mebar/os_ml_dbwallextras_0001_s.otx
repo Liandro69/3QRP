@@ -1,0 +1,10 @@
+Version 13 30
+{
+	Image os_ml_dbwallextras_0001_s.dds
+	Type Regular
+	PixelFormat DXT1
+	Levels 7
+	Usage SPECULAR
+	UsageFlags  HD_SPLIT
+	ExtraFlags 0
+}

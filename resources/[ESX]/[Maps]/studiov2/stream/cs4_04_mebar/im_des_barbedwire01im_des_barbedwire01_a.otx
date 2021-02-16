@@ -1,0 +1,10 @@
+Version 13 30
+{
+	Image im_des_barbedwire01im_des_barbedwire01_a.dds
+	Type Regular
+	PixelFormat DXT5
+	Levels 6
+	Usage DIFFUSE
+	UsageFlags  NOT_HALF HD_SPLIT
+	ExtraFlags 0
+}

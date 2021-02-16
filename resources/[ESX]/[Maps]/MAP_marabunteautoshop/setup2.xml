@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SSetupData>
+  <deviceName>dlc_int_mara</deviceName>
+  <datFile>content.xml</datFile>
+  <timeStamp>21/10/2018 20:06</timeStamp>
+  <nameHash>int_mara</nameHash>
+  <contentChangeSets />
+  <contentChangeSetGroups>
+		<Item>
+			<NameHash>GROUP_STARTUP</NameHash>
+			<ContentChangeSets>
+				<Item>int_mara_AUTOGEN</Item>
+			</ContentChangeSets>
+		</Item>
+		<Item>
+      <NameHash>GROUP_MAP</NameHash>
+      <ContentChangeSets>
+        <Item>int_mara_STREAMING_MAP</Item>
+      </ContentChangeSets>
+    </Item>
+		<Item>
+      <NameHash>GROUP_MAP_SP</NameHash>
+      <ContentChangeSets>
+        <Item>int_mara_STREAMING_MAP</Item>
+      </ContentChangeSets>
+    </Item>
+	</contentChangeSetGroups>
+	<startupScript />
+	<scriptCallstackSize value="0" />
+	<type>EXTRACONTENT_COMPAT_PACK</type>
+	<order value="69" />
+	<minorOrder value="0" />
+	<isLevelPack value="false" />
+	<dependencyPackHash />
+	<requiredVersion />
+	<subPackCount value="0" />
+</SSetupData>
