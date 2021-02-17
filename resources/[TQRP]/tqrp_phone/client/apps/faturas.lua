@@ -1,0 +1,5 @@
+RegisterNUICallback( 'PayBill', function( data, cb )
+	ESX.TriggerServerCallback('tqrp_phone:server:payBill', function(callback)
+		cb(callback)
+	end, data)
+end)

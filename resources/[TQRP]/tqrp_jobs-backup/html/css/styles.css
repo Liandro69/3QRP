@@ -1,0 +1,150 @@
+#main {
+    display: none;
+    font-family: 'Verdana';
+}
+
+#box{
+    height: 400px;
+    width: 600px;
+    background: rgba(18, 18, 18, 0.8);
+    -moz-box-shadow:    inset 0 0 15px #000000;
+    -webkit-box-shadow: inset 0 0 15px #000000;
+    box-shadow:         inset 0 0 15px #000000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+	font-size: 12px;
+}
+
+#separator{
+	height: 10px;
+    width: 600px;
+    background: rgba(255, 18, 18, 0.8);
+    -moz-box-shadow:    inset 0 0 15px #000000;
+    -webkit-box-shadow: inset 0 0 15px #000000;
+    box-shadow:         inset 0 0 15px #000000;
+    margin-top: -10px;
+}
+
+#wood{
+	height: 200px;
+    width: 100px;
+}
+
+#companyName{
+	color: white;
+	text-align: center;
+	font-family: 'Verdana';
+
+}
+
+#woodTitle, #foodTitle, #mineTitle, #waterTitle{
+	color: white;
+	text-align: center;
+	font-family: 'Verdana';
+}
+
+#sell{
+    font-size: 400px;
+    background: rgba(18, 18, 18, 0.8);
+    -moz-box-shadow:    inset 0 0 15px #000000;
+    -webkit-box-shadow: inset 0 0 15px #000000;
+    box-shadow:         inset 0 0 15px #000000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 5px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    position: absolute;
+    bottom: 20px;
+    left: 95px;
+}
+
+#sell:hover{
+    background: rgba(000, 100, 000, 0.8);
+    transform: scale(0.95);
+    transition: 0.5s;
+}
+
+#get{
+    font-size: 400px;
+    background: rgba(18, 18, 18, 0.8);
+    -moz-box-shadow:    inset 0 0 15px #000000;
+    -webkit-box-shadow: inset 0 0 15px #000000;
+    box-shadow:         inset 0 0 15px #000000;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 5px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    position: absolute;
+    bottom: 20px;
+    right: 90px;
+}
+
+#get:hover{
+    background: rgba(000, 100, 000, 0.8);
+    transform: scale(0.95);
+    transition: 0.5s;
+}
+
+.main-bar {
+	width: 400px;
+	position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -10px;
+}
+
+.bar {
+	width: 100%;
+	background-color: rgb(255, 255, 255);
+	padding: 3px;
+	border-radius: 3px;
+	box-shadow: inset 0 1px 3px rgba(0, 0, 0, .2);
+}
+
+.wood-bar-fill {
+	display: block;
+	height: 14px;
+	background-color: #E49000;
+	border-radius: 3px;
+	transition: width 500ms ease-in-out;
+	width: 70%;
+}
+	
+.food-bar-fill {
+	display: block;
+	height: 14px;
+	background-color: #00BC38;
+	border-radius: 3px;
+	transition: width 500ms ease-in-out;
+	width: 50%;
+}
+	
+.mine-bar-fill {
+	display: block;
+	height: 14px;
+	background-color: #FFF700;
+	border-radius: 3px;
+	transition: width 500ms ease-in-out;
+	width: 50%;
+}
+	
+.water-bar-fill {
+	display: block;
+	height: 14px;
+	background-color: #0077FF;
+	border-radius: 3px;
+	transition: width 500ms ease-in-out;
+	width: 50%;
+}

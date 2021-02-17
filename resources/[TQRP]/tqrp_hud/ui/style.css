@@ -1,0 +1,280 @@
+@font-face {
+  font-family: 'ChaletComprime';
+  src: url("fonts/fonts/ChaletComprimeCologneSixty.ttf");
+}
+@font-face {
+  font-family: 'ChaletLondon';
+  src: url("fonts/fonts/ChaletLondonNineteenSixty.ttf");
+}
+
+@-webkit-keyframes fadeLoop {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes fadeLoop {
+  0% {
+    opacity: 0; }
+  50% {
+    opacity: 1; }
+  100% {
+    opacity: 0; }}
+
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+}
+
+body {
+  font-family: 'Oswald', sans-serif;
+  font-style: normal;
+  overflow: hidden;
+  height: 100%;
+}
+
+.background, .outer {
+  -webkit-transform: rotate(-180deg);
+  -ms-transform: rotate(-180deg);
+  transform: rotate(-180deg);
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%; 
+}
+
+.progress {
+  -webkit-transition: 0.35s stroke-dashoffset;
+  -o-transition: 0.35s stroke-dashoffset;
+  transition: 0.35s stroke-dashoffset;
+  -webkit-transform: rotate(140deg);
+  -ms-transform: rotate(140deg);
+  transform: rotate(140deg);
+  -webkit-transform-origin: 50% 50%;
+  -ms-transform-origin: 50% 50%;
+  transform-origin: 50% 50%; 
+}
+
+.huds {
+  display:none;
+  height: 100%;
+  width: 100%;
+  transform: scale(.925);
+}
+
+.huds .hud.dashboard {
+  position: absolute;
+  height: 40px;
+  bottom: 65px;
+  left: 16.35%;
+  -webkit-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%); 
+}
+
+.huds .hud.dashboard div {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 10px; 
+}
+
+.huds .hud.dashboard div svg {
+  opacity: .2; 
+}
+
+.huds .hud.dashboard .active svg {
+  opacity: .8;
+}
+
+.huds .hud.dashboard .speedometer {
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  -webkit-clip-path: polygon(100% 45%, 80% 45%, 60% 100%, 0% 100%, 0% 0%, 100% 0%);
+  clip-path: polygon(100% 45%, 80% 45%, 60% 100%, 0% 100%, 0% 0%, 100% 0%); 
+}
+
+.huds .hud.dashboard .speedometer svg {
+  opacity: 1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: scale(2) translate(-25%, -25%);
+  -ms-transform: scale(2) translate(-25%, -25%);
+  transform: scale(2) translate(-25%, -25%); 
+}
+
+.huds .hud.dashboard .speedometer .outer {
+  opacity: .3;
+  -webkit-transform: rotate(180deg) scale(1.1);
+  -ms-transform: rotate(180deg) scale(1.1);
+  transform: rotate(180deg) scale(1.1); 
+}
+
+.huds .hud.dashboard .speedometer .text {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0; 
+}
+
+.huds .hud.dashboard .speedometer .text .speed {
+  color: white;
+  font-size: 26px;
+  font-weight: normal;
+  display: block; 
+  text-shadow: 1px 1px rgba(0, 0, 0, 255);
+}
+
+.huds .hud.dashboard .speedometer .text .kmh {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 10px;
+  display: block;
+  text-transform: uppercase; 
+  text-shadow: 1px 1px rgba(0, 0, 0, 255);
+}
+
+.huds .hud.fuel {
+  -webkit-transform: scale(0.8);
+  -ms-transform: scale(0.8);
+  transform: scale(0.8);
+  position: absolute;
+  bottom: -57.5px;
+  right: -10px;
+  position: absolute;
+  text-align: center;
+  margin: 15px 0; 
+}
+
+.huds .hud.fuel span {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  display: block;
+  margin-top: 0px; 
+}
+
+.huds .hud.fuel svg {
+  opacity: 1 !important; 
+}
+
+.hud.fuel span {
+  opacity: 0;
+  margin-top: -4px; 
+}
+
+.hud.fuel span:after {
+  position: absolute;
+  content: '%';
+  top: 1px;
+  right: 4px;
+  font-size: 7px; 
+}
+
+.hud.fuel g {
+  -webkit-transform: translate(16px, 13px);
+  -ms-transform: translate(16px, 13px);
+  transform: translate(16px, 13px); 
+}
+
+.belt {
+  position: fixed;
+  width: 15%;
+  height: 2.9%;
+  align-items: center !important;
+  left: 19.75%;
+  bottom: 2.25%;
+  overflow: hidden; 
+}
+
+#belt_status{
+  position: relative;
+  width: 60px;
+  height: 17px;
+  padding: 7px;
+  transform: rotate(0deg);
+}
+
+#cruise_status{
+  position: relative;
+  height: 17px;
+  padding: 7px;
+  transform: rotate(0deg);
+  bottom: 10% !important;
+  transform: scale(1.5);
+  display: none;
+  overflow: hidden; 
+}
+
+#engine_status{
+  position: relative;
+  height: 17px;
+  padding: 7px;
+  transform: rotate(0deg);
+  display: none;
+}
+
+#keys_status{
+  position: relative;
+  height: 17px;
+  padding: 7px;
+  transform: rotate(0deg);
+}
+
+#street {
+  position: fixed;
+  height: 3%;
+  width: 40%;
+  bottom: -0.4%;
+  left: 14.2%;
+}
+
+#street a{
+  color: #ececec;
+  font-size: 16.5px;
+  font-weight: 400;
+  font-variant: normal;
+  left: 1.5%;
+  line-height: 44px;
+  margin: 0 0 24px;
+  text-align: center;
+  text-shadow: 1px 1px rgba(0, 0, 0, 255);
+  text-transform: uppercase;
+}
+
+.lower {
+  margin-top: 53% !important;
+}
+
+.timelower {
+  padding-bottom: 0px !important;
+}
+
+.hide {
+  display: none !important;
+}
+
+.direction {
+  width: 100px;
+  height: 20px;
+  bottom: -37% !important;
+  overflow: hidden;
+  float: left;
+}
+
+.direction>.image {
+  height: 100%;
+  background-position: center center;
+  background-size: 400px;
+  background-repeat: repeat;
+  width: 800%;
+  z-index: 1;
+  background-image: url('assets/compass.png');
+  transition: 0.5s;
+}

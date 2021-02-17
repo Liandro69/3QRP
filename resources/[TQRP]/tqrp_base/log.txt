@@ -1,0 +1,8 @@
+﻿
+[tqrp_chat]: 26/01/2021 11:42:41 : conde_e - steam:11000010d690f82 : [CHATCOMMAND]: giveitem 2 phone 1
+[tqrp_chat]: 26/01/2021 11:44:35 : conde_e - steam:11000010d690f82 : [CHATCOMMAND]: car sanchez
+[tqrp_chat]: 26/01/2021 11:45:30 : conde_e - steam:11000010d690f82 : [CHATCOMMAND]: setjob 2 police 8
+[tqrp_chat]: 26/01/2021 11:46:40 : conde_e - steam:11000010d690f82 : [CHATCOMMAND]: car sanchez
+[tqrp_chat]: 26/01/2021 11:46:44 : conde_e - steam:11000010d690f82 : [CHATCOMMAND]: car sanchez
+[tqrp_chat]: 26/01/2021 11:48:15 : conde_e - steam:11000010d690f82 : [CHATCOMMAND]: car sanchez
+[es_extended]: 26/01/2021 11:48:54 : conde_e - steam:11000010d690f82 : **Morreu** 0

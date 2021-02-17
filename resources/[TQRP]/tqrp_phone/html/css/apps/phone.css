@@ -1,0 +1,392 @@
+#phone-container {
+  background: rgba(48, 48, 48,1);
+}
+#phone-container .inner-app .phone-app-top {
+  height: 92%;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container {
+  height: 100%;
+  display: none;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container.active-section {
+  display: block;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] {
+  color: #1e1e1e;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-top {
+  height: 20%;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-top .contact-display {
+  font-size: 30px;
+  position: absolute;
+  font-weight: bold;
+  width: fit-content;
+  top: 8%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-top .call-type {
+  font-size: 15px;
+  position: absolute;
+  width: fit-content;
+  top: 27%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  display: none;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-top #type {
+  position: absolute;
+  height: 10%;
+  width: 19%;
+  border: none;
+  top: 12%;
+  left: 5%;
+  padding: 15px 0;
+  font-size: 40px;
+  text-align: center;
+  color: #797979;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-top #number {
+  padding: 15px 0;
+  height: 100%;
+  font-size: 30px;
+  text-align: center;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-top .delete-num-btn {
+  position: absolute;
+  right: 2%;
+  top: 17.5%;
+  font-size: 25px;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-top .delete-num-btn:hover {
+  transition: all ease-in 0.15s;
+  color: #347deb;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-keys {
+  background: #fff;
+  border-top: 1px solid #1e1e1e;
+  position: absolute;
+  width: 100%;
+  bottom: 10%;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-keys .keypad-key {
+  width: 32%;
+  padding: 10px;
+  display: inline-block;
+  text-align: center;
+  font-size: 25px;
+  border-radius: 10px;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-keys .keypad-key:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(85%);
+  background: #c4c4c4;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-keys .keypad-key.key-call {
+  width: 30% !important;
+  left: 34%;
+  height: 100%;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-keys .keypad-key.key-call:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(85%);
+  background: transparent;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="keypad"] .keypad-keys .keypad-key.key-call i {
+  padding: 20px;
+  width: 76px;
+  height: 76px;
+  background: #1b5e20;
+  border-radius: 100px;
+  color: rgba(48, 48, 48,1);
+  font-size: 30px;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call {
+  padding: 10px 20px 5px 20px;
+  background: #fff;
+  color: #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+  min-height: 20%; 
+
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call:hover {
+  background: #c4c4c4;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call i {
+  font-size: 20px;
+  padding: 10px;
+  pointer-events: none;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call i.icon-outgoing {
+  color: #f00;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call i.icon-incoming {
+  color: #1e8100;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call span {
+  display: inline-block;
+  width: 45%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 15px;
+  pointer-events: none;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call .timestamp {
+  max-width: 50%;
+  float: right;
+  font-size: 14px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  pointer-events: none;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call-actions {
+  z-index: 998;
+  display: none;
+  width: 60%;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call-actions i {
+  width: 20%;
+  text-align: center;
+  font-size: 25px;
+  pointer-events: auto;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call-actions i:hover {
+  transition: all ease-in 0.15s;
+  color: #347deb;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call-actions i.action-disabled {
+  color: #3f3f3f !important;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="history"] .call-actions i.action-disabled:hover {
+  color: #3f3f3f !important;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list {
+  max-height: 95%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact {
+  padding: 10px;
+  background: #fff;
+  color: #1e1e1e;
+  border-bottom: 1px solid #1e1e1e;
+  line-height: 35px;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact:hover {
+  transform: all ease-in 0.15s;
+  background: #c4c4c4;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact .phone-avatar {
+  font-size: 20px;
+  float: left;
+  line-height: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
+  height: 35px;
+  width: 35px;
+  border-radius: 70px;
+  text-align: center;
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+  background: #347deb;
+  color: #fff;
+  pointer-events: none;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact .call-actions {
+  z-index: 998;
+  display: none;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact .call-actions i {
+  width: 49.5%;
+  text-align: center;
+  font-size: 25px;
+  pointer-events: auto;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact .call-actions i:hover {
+  transition: all ease-in 0.15s;
+  color: #347deb;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact .call-actions i.action-disabled {
+  color: #3f3f3f !important;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contacts-list .phone-contact .call-actions i.action-disabled:hover {
+  color: #3f3f3f !important;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contact-search {
+  border-top: 1px solid #1e1e1e;
+  width: 100%;
+  position: absolute;
+  bottom: 7%;
+  height: 5%;
+  font-size: 15px;
+}
+#phone-container .inner-app .phone-app-top .inner-phone-container[data-section="contacts"] .contact-search input {
+  height: 3%;
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  font-size: 15px;
+}
+#phone-container .inner-app .inner-phone-nav {
+  position: absolute;
+  bottom: 2%;
+  color: #1e1e1e;
+  width: 100%;
+  height: 5%;
+  background: #fff;
+  border-top: 1px solid #1e1e1e;
+}
+#phone-container .inner-app .inner-phone-nav .phone-nav-button {
+  display: inline-block;
+  width: 32%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+  border-bottom: 5px solid transparent;
+}
+#phone-container .inner-app .inner-phone-nav .phone-nav-button.active-nav {
+  border-bottom: 5px solid #347deb;
+}
+#phone-container .inner-app .inner-phone-nav .phone-nav-button:hover {
+  cursor: pointer;
+  transition: all ease-in 0.3s;
+  color: #347deb;
+}
+#phone-call-container {
+  background: #1e1e1e;
+}
+#phone-call-container .inner-app .call-header {
+  text-align: center;
+  height: 40%;
+  color: #fff;
+  font-weight: bold;
+  font-size: 20px;
+}
+#phone-call-container .inner-app .call-header .call-avatar {
+  font-size: 50px;
+  line-height: 120px;
+  height: 120px;
+  width: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 100px;
+  margin-top: 10%;
+  background: #fff;
+  color: #1e1e1e;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+
+}
+#phone-call-container .inner-app .call-header .call-avatar.call-pending {
+  transition: all ease-in 0.3s;
+  filter: brightness(40%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+#phone-call-container .inner-app .call-header .call-avatar.call-connected {
+  transition: all ease-in 0.3s;
+  filter: brightness(100%);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+#phone-call-container .inner-app .call-header .call-avatar.call-disconnected {
+  transition: all ease-in 0.3s;
+  color: #fff;
+  background: #347deb;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+#phone-call-container .inner-app .call-header .call-number {
+  margin-top: 15px;
+}
+#phone-call-container .inner-app .call-buttons {
+  height: 20%;
+  font-size: 55px;
+  color: #fff;
+  position: absolute;
+  bottom: 40%;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row {
+  width: 100%;
+  text-align: center;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button {
+  display: inline-block;
+  width: 45%;
+  padding: 30px;
+  border-radius: 50px;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(85%);
+  background: #1e1e1e;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button span {
+  display: block;
+  font-size: 12px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button#end-call {
+  height: 100%;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button#end-call:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(85%);
+  background: transparent;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button#end-call i {
+  padding: 24px;
+  width: 85px;
+  background: #eb3434;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 35px;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button#answer-call {
+  height: 100%;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button#answer-call:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(85%);
+  background: transparent;
+}
+#phone-call-container .inner-app .call-buttons .call-button-row .call-button#answer-call i {
+  padding: 24px;
+  width: 85px;
+  background: #37eb34;
+  border-radius: 100px;
+  color: #fff;
+  font-size: 35px;
+}
+
+#camera-container {
+  background: #000;
+}
+
+#motorsport-container {
+
+}

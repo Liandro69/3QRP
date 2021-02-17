@@ -1,0 +1,80 @@
+#cars-container {
+  background: rgba(48, 48, 48,1);
+}
+#cars-container .inner-app .cars-header {
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  background: rgba(86,86,86,0.85);
+  color: #fff;
+  font-family: Helvetica;
+  font-weight: bold;
+  border-bottom: 1px solid #1e1e1e;
+  font-size: 20px;
+}
+
+#cars-container .inner-app .cars-list {
+  height: 90%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#cars-container .inner-app .cars-list .car {
+
+  display: block;
+  color: blue;
+  background:rgba(48, 48, 48,1);
+  padding: 10px 20px 5px 20px;
+}
+
+#cars-container .inner-app .cars-list .car .car-title {
+  line-height: 20px;
+  pointer-events: none;
+  font-family: Helvetica !important;
+  font-size: 20px;
+  color: whitesmoke;
+
+  text-align: left;
+}
+
+#cars-container .inner-app .cars-list .car .car-title-text {
+  display: inline-block;
+  left: 5%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: white;
+  margin-top: 5px;
+  font-family: Helvetica;
+  font-size: 15px;
+  width: 90%;
+  max-height: 10%;
+}
+
+#cars-container .inner-app .cars-list .car:hover {
+  transition: all ease-in 0.3s;
+  background: #949494;
+}
+
+#cars-container .inner-app .cars-list .car .car-actions {
+  z-index: 998;
+  padding: 5px;
+  display: none;
+  color:whitesmoke;
+}
+#cars-container .inner-app .cars-list .car .car-actions i {
+  width: 48%;
+  text-align: center;
+  font-size: 15px;
+  pointer-events: auto;
+}
+#cars-container .inner-app .cars-list .car .car-actions i:hover {
+  transition: all ease-in 0.30s;
+  color: #3f3f3f;
+}
+#cars-container .inner-app .cars-list .car .car-actions i.action-disabled {
+  color: #3f3f3f !important;
+}
+#cars-container .inner-app .cars-list .car .car-actions i.action-disabled:hover {
+  color: #3f3f3f !important;
+}

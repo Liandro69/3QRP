@@ -1,0 +1,94 @@
+#ads-container {
+	background: rgba(63, 63, 63,1);}
+
+#ads-container .inner-app .ads-header {
+  padding: 10px 0;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  font-size: 30px;
+  background: #fbe141;
+  color: #000;
+  background-image: url(../../img/yellowPages.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+#ads-container .inner-app .ads-header:hover {
+  transition: all ease-in 0.3s;
+  filter: brightness(60%);
+}
+
+#ads-container .ads-body {
+  height: 85%;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-top: 1px solid #1e1e1e;
+}
+
+#ads-container .ads-body .ads {
+  background: #fbe141;
+  border-bottom: 3px solid #1e1e1e;
+  color: #000;
+  margin-top: 5px;
+}
+
+#ads-container .ads-body .ads .body {
+  width: 97%;
+  padding: 10px 20px 5px 20px;
+  margin-left: auto;
+  overflow: hidden;
+  font-size: 14px;
+  font-family: Helvetica !important;
+  text-align: left;
+}
+
+#ads-container .ads-body .ads .author {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#ads-container .ads-body .ads .time {
+  padding: 0 10px 5px 10px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  width: fit-content;
+  font-family: Helvetica !important;
+  margin-left: auto;
+}
+
+#ads-container .ads-body .ads .num {
+  padding: 0 10px 5px 10px;
+  text-align: left;
+  font-size: 12px;
+  font-weight: bold;
+  width: fit-content;
+  margin-left: auto;
+}
+
+#ads-container .inner-app .ads-header .fa-plus-circle {
+  position: absolute;
+  right: 5%;
+  font-size: 20px;
+  line-height: 34px;
+}
+
+#ads-container .fa-trash-alt {
+  position: relative;
+  left: 5%;
+  bottom: 5%;
+  font-size: 14px;
+  line-height: 34px;
+}
+
+#ads-container .fa-trash-alt:hover {
+  color:red;
+}

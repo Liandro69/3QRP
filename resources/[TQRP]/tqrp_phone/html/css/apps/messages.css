@@ -1,0 +1,202 @@
+#message-container {
+  background: rgba(48, 48, 48,1);
+}
+#message-container .inner-app .messages-list .message {
+  border-bottom: 1px solid #3f3f3f;
+  height: 65px;
+  font-family: Helvetica;
+  display: block;
+  background: rgba(48, 48, 48,1);
+  color: #ffffff;
+}
+#message-container .inner-app .messages-list .message .text-avatar {
+  font-size: 20px;
+  float: left;
+  line-height: 35px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  height: 35px;
+  width: 35px;
+  border-radius: 70px;
+  text-align: center;
+  position: relative;
+  top: 15%;
+  -webkit-transform: translate(0%, 0%);
+  transform: translate(0%, 0%);
+  background: #347deb;
+  color: #fff;
+
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+#message-container .inner-app .messages-list .message .text-name {
+  line-height: 30px;
+  width: 74%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#message-container .inner-app .messages-list .message .text-message {
+  line-height: 35px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 60%;
+}
+#message-container .inner-app .messages-list .message .text-time {
+  width: 24%;
+  text-align: right;
+  display: inline-block;
+  position: relative;
+  left: 74%;
+  top: -30px;
+}
+#message-container .inner-app .messages-list .message:hover {
+  transition: all ease-in 0.15s;
+  background: #c4c4c4;
+}
+#message-container .inner-app .btn-floating {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+#message-container #messages-new-modal {
+  overflow: visible;
+}
+#message-container #messages-new-modal .dropdown-content {
+  max-height: 1000%;
+}
+#message-container #messages-new-modal .dropdown-content li span {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#message-convo-container {
+  background: rgba(48, 48, 48,1);
+  z-index: 5;
+}
+#message-convo-container .inner-app .convo-top-bar {
+  padding: 10px;
+  font-size: 10px;
+  color: #fff;
+  background: #347deb;
+}
+#message-convo-container .inner-app .convo-top-bar i.back-button {
+  float: left;
+  line-height: 40px;
+  padding-right: 15px;
+}
+#message-convo-container .inner-app .convo-top-bar i.back-button:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(85%);
+}
+#message-convo-container .inner-app .convo-top-bar .convo-top-number {
+  width: 40%;
+  font-size: 15px;
+  line-height: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  float: left;
+}
+#message-convo-container .inner-app .convo-top-bar .convo-top-actions {
+  display: inline-block;
+  width: 49%;
+  line-height: 40px;
+  text-align: right;
+}
+#message-convo-container .inner-app .convo-top-bar .convo-top-actions i {
+  padding: 10px;
+}
+#message-convo-container .inner-app .convo-top-bar .convo-top-actions i:hover {
+  transition: all ease-in 0.15s;
+  filter: brightness(85%);
+}
+#message-convo-container .inner-app .convo-texts-list {
+  height: 75%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+#message-convo-container .inner-app .convo-texts-list .text {
+  width: fit-content;
+  display: block;
+  padding: 0 20px;
+  color: #fff;
+}
+#message-convo-container .inner-app .convo-texts-list .text:first-child {
+  margin-top: 10px;
+}
+#message-convo-container .inner-app .convo-texts-list .text span {
+  width: fit-content;
+  display: inline-block;
+  padding: 10px 20px 10px 20px;
+  border-radius: 10px;
+  background: #347deb;
+}
+#message-convo-container .inner-app .convo-texts-list .text p {
+  padding: 0;
+  margin: 0;
+  color: #ffffff;
+  font-size: 10px;
+  opacity: 0;
+}
+#message-convo-container .inner-app .convo-texts-list .text:hover p {
+  transition: all ease-in 0.15s;
+  opacity: 100;
+}
+#message-convo-container .inner-app .convo-texts-list .text.me-sender {
+  margin-left: auto;
+}
+#message-convo-container .inner-app .convo-texts-list .text.me-sender span {
+  background: #1d1d1d;
+}
+#message-convo-container .inner-app .convo-texts-list .text.me-sender p {
+  text-align: right;
+}
+#message-convo-container .inner-app .convo-texts-list .text.other-sender {
+  margin-right: auto;
+}
+#message-convo-container .inner-app .convo-texts-list .text.other-sender p {
+  text-align: left;
+}
+#message-convo-container .inner-app .convo-text-input {
+  height: 10%;
+  width: 95%;
+  padding: 5px;
+  margin: 0;
+  font-size: 15px;
+}
+#message-convo-container .inner-app .convo-text-input #convo-new-text {
+  -webkit-margin-after: 0;
+  margin-block-end: 0;
+}
+#message-convo-container .inner-app .convo-text-input #convo-new-text .input-field {
+  margin: 0;
+  display: inline-block;
+  width: 85%;
+}
+#message-convo-container .inner-app .convo-text-input #convo-new-text .input-field #convo-input {
+  padding: 10px;
+  margin: 0;
+  height: 65%;
+}
+#message-convo-container .inner-app .convo-text-input #convo-new-text .input-field .character-counter {
+  float: right;
+  font-size: 12px;
+  height: 1px;
+  position: absolute;
+  bottom: 0%;
+  right: 1%;
+}
+#message-convo-container .inner-app .convo-text-input #convo-new-text i {
+  font-size: 25px;
+  position: absolute;
+  bottom: 1.25%;
+  right: 3%;
+}
+#message-convo-container .inner-app .convo-text-input #convo-new-text i:hover {
+  transition: all ease-in 0.15s;
+  color: #347deb;
+}

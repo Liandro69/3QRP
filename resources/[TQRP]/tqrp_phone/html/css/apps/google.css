@@ -1,0 +1,101 @@
+#google-container {
+  background: #eaeaea;
+}
+#google-container .inner-app .google-header {
+  padding: 10px 0;
+  width: 100%;
+  height: 10%;
+  text-align: center;
+  font-size: 30px;
+  background: #fff;
+  color: #00b6f1;
+  background-image: url(../../img/google.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+}
+
+#google-container .inner-app .google-list {
+  height: 80%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#google-container .inner-app .google-list img{
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+#google-container .inner-app .google-list .search {
+  border: 1px solid #1e1e1e;
+  display: block;
+  color: blue;
+  background: #fff;
+  padding: 10px 20px 5px 20px;
+}
+
+#google-container .inner-app .google-list .search .search-title {
+  line-height: 20px;
+  pointer-events: none;
+  color: blue;
+}
+
+#google-container .inner-app .google-list .search .search-title-text {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: black;
+  font-size: 15px;
+  width: 90%;
+  max-height: 10%;
+}
+
+#google-container .inner-app .google-list .search .contact-name .number {
+  font-weight: bold;
+  float: right;
+  padding-right: 5%;
+  font-size: 10px;
+}
+
+#google-container .inner-app .google-list .search:hover {
+  transition: all ease-in 0.3s;
+  background: #c4c4c4;
+}
+
+#google-container .inner-app .search-google {
+  border-top: 1px solid #1e1e1e;
+}
+
+#google-container .inner-app .search-google input {
+  height: 3%;
+  width: 100%;
+  padding: 10px;
+  margin: 0;
+  font-size: 15px;
+}
+
+#google-container .inner-app .google-list .search .search-actions {
+  z-index: 998;
+  padding: 5px;
+  display: none;
+  color:black;
+}
+#google-container .inner-app .google-list .search .search-actions i {
+  width: 25%;
+  text-align: center;
+  font-size: 15px;
+  pointer-events: auto;
+}
+#google-container .inner-app .google-list .search .search-actions i:hover {
+  transition: all ease-in 0.30s;
+  color: red;
+}
+#google-container .inner-app .google-list .search .search-actions i.action-disabled {
+  color: #3f3f3f !important;
+}
+#google-container .inner-app .google-list .search .search-actions i.action-disabled:hover {
+  color: #3f3f3f !important;
+}
